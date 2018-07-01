@@ -16,7 +16,7 @@ class App extends Component {
   renderResults = () => {
     const { results } = this.state
     return results.map(movie => {
-      return <p>{movie.Title}</p>
+      return <p key={movie.imdbID}>{movie.Title}</p>
     })
   }
 
