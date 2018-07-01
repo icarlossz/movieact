@@ -2,32 +2,49 @@ import React, { Component } from 'react';
 import { Title } from './components/Title'
 import { SearchForm } from './components/SearchForm'
 import { MoviesList } from './components/MoviesList';
-import './App.css';
+import styled from 'styled-components';
 import 'bulma/css/bulma.css'
 
 class App extends Component {
   state = {
+    usedSearch: false,
     results: []
   }
 
   handleResults = (results) => {
-    this.setState({ results })
+    this.setState({ results, usedSearch: true })
+  }
+
+  renderResults = () => {
+    return this.state.results.length === 0
+      ? <p>No results</p>
+      : <MoviesList movies={this.state.results} />
   }
 
   render() {
     return (
-      <div className="App">
+      <AppContainer>
         <Title>Movieact</Title>
-        <div className="SearchForm-wrapper">
+        <SearchFormWrapper>
           <SearchForm onResults={this.handleResults} />
-        </div>
-        {this.state.results.length === 0
-          ? <p>Sin resultados</p>
-          : <MoviesList movies={this.state.results} />
+        </SearchFormWrapper>
+        {this.state.usedSearch
+          ? this.renderResults()
+          : <small>Search your movie in the form! </small>
         }
-      </div>
+      </AppContainer>
     );
   }
 }
+
+const AppContainer = styled.div`
+  text-align: center;
+  padding: 30px;
+`;
+
+const SearchFormWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+`;
 
 export default App

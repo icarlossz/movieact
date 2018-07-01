@@ -15,6 +15,7 @@ export class Movie extends Component {
         <div className="card-image">
           <figure className="image">
             <img
+              rel="preload"
               src={poster}
               alt={poster}
             />
@@ -23,7 +24,7 @@ export class Movie extends Component {
         <div className="card-content">
           <div className="media">
             <div className="media-content">
-              <p className="title is-4">{title}</p>
+              <p className="title is-5">{title}</p>
               <p className="subtitle is-6">{year}</p>
             </div>
           </div>
