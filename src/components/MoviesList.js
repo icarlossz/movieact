@@ -16,6 +16,7 @@ export class MoviesList extends Component {
             return (
               <MoviesListItem key={movie.imdbID}>
                 <Movie
+                  id={movie.imdbID}
                   title={movie.Title}
                   year={movie.Year}
                   poster={movie.Poster}
@@ -32,13 +33,16 @@ const MoviesListContainer = styled.div`
   margin: 1em;
   display: flex;
   flex-wrap: wrap;
+  justify-content: space-around;
 `;
 
 const MoviesListItem = styled.div`
-  width: 25%;
-  padding: 10px;
+  width: 24%;
   height: auto;
-  @media screen and (max-width: 776px) {
-    width: 50%;
+  border-radius: 5px;
+  margin: 15px 0;
+  box-shadow: 0 0 10px rgba(0,0,0,0.3);
+  @media screen and (max-width: 576px) {
+    width: 47%;
   }
 `;
