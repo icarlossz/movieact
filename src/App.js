@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import { Title } from './components/Title'
 import { SearchForm } from './components/SearchForm'
 import { MoviesList } from './components/MoviesList'
 import { Detail } from './pages/Detail'
@@ -32,7 +31,7 @@ class App extends Component {
 
     return (
       <AppContainer>
-        <Title>Movieact</Title>
+        <Title rel="preload" src="/movieact.png" alt="Movieact Title"/>
         <SearchFormWrapper>
           <SearchForm onResults={this.handleResults} />
         </SearchFormWrapper>
@@ -54,6 +53,12 @@ const AppContainer = styled.div`
 const SearchFormWrapper = styled.div`
   display: flex;
   justify-content: center;
+`;
+
+const Title = styled.img`
+  width: 500px;
+  max-width: 90%;
+  margin-bottom: 20px;
 `;
 
 export default App
