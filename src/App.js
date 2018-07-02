@@ -47,7 +47,8 @@ class App extends Component {
 
 const AppContainer = styled.div`
   text-align: center;
-  padding: 30px;
+  padding: 10px;
+  margin-top: 20px;
 `;
 
 const SearchFormWrapper = styled.div`

@@ -22,7 +22,7 @@ export class Detail extends Component {
       })
   }
 
-  goBack() {
+  goBack () {
     window.history.back()
   }
 
@@ -32,23 +32,55 @@ export class Detail extends Component {
   }
 
   render() {
-    const { Title, Year, imbdRating, Plot, Poster } = this.state.movie
+    const { Title, Year, imdbRating, Plot, Poster } = this.state.movie
 
     return (
-      <MovieDetail>
-        <button onClick={this.goBack()}>Volver</button>
-        <h1>{Title}</h1>
-        <img src={Poster} alt={Title}/>
-        <p>{Plot}</p>
-        <p>{Year}</p>
-        <p>{imbdRating}</p>
-      </MovieDetail>
+      <div>
+        <Button onClick={this.goBack}>Back</Button>
+        <MovieDetail>
+          <MovieDetailTitle>{Title}</MovieDetailTitle>
+          <MovieDetailImg src={Poster} alt={Title}/>
+          <p>{Plot}</p>
+          <p><Bold>Year:</Bold> {Year}</p>
+          <p><Bold>Rating IMDB:</Bold> {imdbRating}</p>
+        </MovieDetail>
+      </div>
     )
   }
 }
+
+const Button = styled.button`
+  background: #f55;
+  padding: 10px 25px;
+  border: none;
+  color: #fff;
+  font-size: 15px;
+  text-transform: uppercase;
+`;
 
 const MovieDetail = styled.div`
   text-align: center;
   width: 90%;
   margin: 0 auto;
+  margin-top: 20px;
+`;
+
+const MovieDetailTitle = styled.h1`
+  font-size: 28px;
+  font-weight: 700;
+  text-transform: uppercase;
+`;
+
+const MovieDetailImg = styled.img`
+  margin: 40px 0;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.3);
+  transition: .3s;
+  &:hover {
+    transform: translate3d(5px,-5px,-30px);
+  }
+`;
+
+const Bold = styled.span`
+  font-weight: 700;
 `;

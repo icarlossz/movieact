@@ -42,6 +42,10 @@ const MoviesListItem = styled.div`
   border-radius: 5px;
   margin: 15px 0;
   box-shadow: 0 0 10px rgba(0,0,0,0.3);
+  transition: .3s;
+  &:hover {
+    transform: translate3d(0,-5px,-30px);
+  }
   @media screen and (max-width: 576px) {
     width: 47%;
   }
