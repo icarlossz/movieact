@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
+import { ButtonBack } from '../components/ButtonBack'
 import styled from 'styled-components'
 
 const API_KEY = '835c654c'
@@ -27,10 +28,6 @@ export class Detail extends Component {
       })
   }
 
-  goBack () {
-    window.history.back()
-  }
-
   componentDidMount() {
     const { movieId } = this.props.match.params
     this.fetchMovie({ id: movieId })
@@ -41,7 +38,7 @@ export class Detail extends Component {
 
     return (
       <div>
-        <Button onClick={this.goBack}>Back</Button>
+        <ButtonBack />
         <MovieDetail>
           <MovieDetailTitle>{Title}</MovieDetailTitle>
           <MovieDetailImg src={Poster} alt={Title}/>
@@ -53,15 +50,6 @@ export class Detail extends Component {
     )
   }
 }
-
-const Button = styled.button`
-  background: #f55;
-  padding: 10px 25px;
-  border: none;
-  color: #fff;
-  font-size: 15px;
-  text-transform: uppercase;
-`;
 
 const MovieDetail = styled.div`
   text-align: center;
